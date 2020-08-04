@@ -1,6 +1,7 @@
 __pycache__
 
-dist/
 build/
+dist/
+env/
 wagtail_unsplash.egg-info/
 .vscode/
