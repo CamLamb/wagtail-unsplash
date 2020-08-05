@@ -63,10 +63,6 @@ def search_unsplash_images(request):
 def add_unsplash_image_to_wagtail(image_id):
     photo = api.photo.get(image_id)
 
-    print("CAM WAS HERE")
-    print(photo)
-    print(photo.description)
-
     url = photo.urls.raw
     unsplash_image = urllib.request.urlretrieve(url)
     fname = os.path.basename(url)
@@ -75,6 +71,7 @@ def add_unsplash_image_to_wagtail(image_id):
         image_obj = Image.objects.create(
             title=f"Unsplash image ({photo.id})",
             file=File(fp),
-            width=photo.width
+            width=photo.width,
+            height=photo.height,
         )
         return image_obj
