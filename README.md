@@ -1,25 +1,33 @@
-# Wagtail Unsplash
+# [Wagtail Unsplash](https://pypi.org/project/wagtail-unsplash/)  [![PyPI](https://img.shields.io/pypi/v/wagtail-unsplash.svg)](https://pypi.org/project/wagtail-unsplash/)
 
-Search for Unsplash images and upload to Wagtail
+Search for Unsplash images and upload to the Wagtail image library.
 
-Available on [PYPI](https://pypi.org/project/wagtail-unsplash/)
+This package uses the [python-unsplash](https://github.com/yakupadakli/python-unsplash) API wrapper:
 
-This uses the python-unsplash API wrapper:
-https://github.com/yakupadakli/python-unsplash
+## Setup
 
-Install with `pip install wagtail-unsplash`
+Install using pip:
 
-Add the following settings to your django settings file:
-
+```sh
+pip install wagtail-unsplash
 ```
+
+After installing the package, add `wagtail_unsplash` to installed apps in your settings file:
+
+```python
+# settings.py
+
 INSTALLED_APPS = [
     ...
     'wagtail_unsplash',
     ...
 ]
+```
 
-...
+and add the API credentials: 
 
+```python
+# settings.py
 WAGTAIL_UNSPLASH = {
     "CLIENT_ID": "",
     "CLIENT_SECRET": "",
@@ -28,5 +36,4 @@ WAGTAIL_UNSPLASH = {
 }
 ```
 
-You can get the needed information by creating an application here:
-https://unsplash.com/developers
+You can get the needed information by creating an application a https://unsplash.com/developers
