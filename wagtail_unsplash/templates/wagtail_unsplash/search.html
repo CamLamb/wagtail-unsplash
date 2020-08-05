@@ -8,18 +8,23 @@
     {% include "wagtailadmin/shared/header.html" with title=im_str icon="image" search_url="search_unsplash_images" %}
     
     <div class="nice-padding">
-        {% if results %}
+        {% if images %}
             <form id="unsplash-image-select-form" action="" method="POST">
                 {% csrf_token %}
                 <div id="image-results">
-                    {% if total_results %}
-                        <h2 role="alert">There are {{ total_results }} matches</h2>
+                    {% if images %}
+                        <h2 role="alert">
+                            {% blocktrans count counter=images.paginator.count %}
+                                There is {{ counter }} match
+                            {% plural %}
+                                There are {{ counter }} matches
+                            {% endblocktrans %}
+                        </h2>
                     {% else %}
                         <h2>{% trans "Search images..." %}</h2>
                     {% endif %}
-
                     <ul class="listing horiz images">
-                        {% for image in results %}
+                        {% for image in images %}
                             <li>
                                 <div class="image-choice">
                                     <figure>
@@ -36,21 +41,8 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    <nav class="pagination" aria-label="{% trans 'Pagination' %}">
-                        <p>{% blocktrans with page_num=current_page total_pages=total_pages %}Page {{ page_num }} of {{ total_pages }}.{% endblocktrans %}</p>
-                        <ul>
-                            <li class="prev">
-                                {% if current_page > 0 %}
-                                    <a href="{{ url_to_use }}{% querystring p=previous_page %}" class="icon icon-arrow-left">{% trans 'Previous' %}</a>
-                                {% endif %}
-                            </li>
-                            <li class="next">
-                                {% if current_page != total_pages %}
-                                    <a href="{{ url_to_use }}{% querystring p=next_page %}" class="icon icon-arrow-right-after">{% trans 'Next' %}</a>
-                                {% endif %}
-                            </li>
-                        </ul>
-                    </nav>
+
+                    {% include "wagtailadmin/shared/pagination_nav.html" with items=images %}
                 </div>
             </form>
         {% else %}

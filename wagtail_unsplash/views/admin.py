@@ -13,6 +13,7 @@ from wagtail.admin.forms.search import SearchForm
 from wagtail.images import get_image_model
 
 from wagtail_unsplash.api import api
+from wagtail_unsplash.paginator import UnsplashPaginator
 
 Image = get_image_model()
 
@@ -35,27 +36,15 @@ def search_unsplash_images(request):
     page = int(request.GET.get("p", 1))
     per_page = 25
 
-    response = None
+    images = None
     if query_string:
-        response = api.search.photos(query=query_string, page=page, per_page=per_page)
+        paginator = UnsplashPaginator(query_string, per_page)
+        images = paginator.get_page(request.GET.get('p'))
 
     context = {
         'search_form': form,
-        'results': None,
+        'images': images,
     }
-
-    if response:
-        total_results = response['total'] if response else None
-        total_pages = response['total_pages'] if response else None
-        results = response['results'] if response else None
-        context.update(
-            results=results,
-            total_results=total_results,
-            total_pages=total_pages,
-            current_page=page,
-            next_page=page + 1 if page != total_pages else None,
-            previous_page=page - 1 if page != 0 else None,
-        )
 
     return TemplateResponse(request, 'wagtail_unsplash/search.html', context)
 
