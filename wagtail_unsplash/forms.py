@@ -1,2 +1,0 @@
-# class UnsplashSearchForm(Form):
-#     query = 
