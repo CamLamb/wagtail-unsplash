@@ -13,15 +13,7 @@
                 {% csrf_token %}
                 <div id="image-results">
                     {% if total_results %}
-                        <h2 role="alert">
-                            {% blocktrans count counter=images.paginator.count %}
-                                There is {{ total_results }} match
-                            {% plural %}
-                                There are {{ total_results }} matches
-                            {% endblocktrans %}
-                        </h2>
-
-                        {% comment %} {% search_other %} {% endcomment %}
+                        <h2 role="alert">There are {{ total_results }} matches</h2>
                     {% else %}
                         <h2>{% trans "Search images..." %}</h2>
                     {% endif %}
