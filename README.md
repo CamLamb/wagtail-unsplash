@@ -1,5 +1,7 @@
 # [Wagtail Unsplash](https://pypi.org/project/wagtail-unsplash/)  [![PyPI](https://img.shields.io/pypi/v/wagtail-unsplash.svg)](https://pypi.org/project/wagtail-unsplash/)
 
+![Screenshot showing wagtail-unsplash search results](https://i.imgur.com/q12TzZL.png)
+
 Search for Unsplash images and upload to the Wagtail image library.
 
 This package uses the [python-unsplash](https://github.com/yakupadakli/python-unsplash) API wrapper:
