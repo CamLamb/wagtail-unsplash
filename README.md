@@ -36,4 +36,4 @@ WAGTAIL_UNSPLASH = {
 }
 ```
 
-You can get the needed information by creating an application a https://unsplash.com/developers
+You can get the needed information by creating an application at https://unsplash.com/developers
