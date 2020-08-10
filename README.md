@@ -30,9 +30,7 @@ and add the API credentials:
 # settings.py
 WAGTAIL_UNSPLASH = {
     "CLIENT_ID": "",
-    "CLIENT_SECRET": "",
-    "REDIRECT_URI": "",
-    "CODE": "",
+    "CLIENT_SECRET": ""
 }
 ```
 
