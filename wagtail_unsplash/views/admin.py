@@ -18,7 +18,6 @@ Image = get_image_model()
 
 
 def search_unsplash_images(request):
-
     if request.POST:
         if "image_id" in request.POST:
             image = add_unsplash_image_to_wagtail(request.POST["image_id"])
@@ -43,18 +42,23 @@ def search_unsplash_images(request):
         'search_form': form,
         'results': None,
     }
-
+    
     if response:
-        total_results = response['total'] if response else None
-        total_pages = response['total_pages'] if response else None
-        results = response['results'] if response else None
-        context.update(
-            results=results,
-            total_results=total_results,
-            total_pages=total_pages,
+        total_pages = response['total_pages']
+        next_page = None
+        if page != total_pages:
+            next_page = page + 1
+        previous_page = None
+        if page != 0:
+            previous_page = page - 1
+
+        contexxt.update(
+            current_page=total_pages,
             current_page=page,
-            next_page=page + 1 if page != total_pages else None,
-            previous_page=page - 1 if page != 0 else None,
+            total_results=response['total'],
+            results=response['results'],
+            next_page=next_page,
+            previous_page=previous_page,
         )
 
     return TemplateResponse(request, 'wagtail_unsplash/search.html', context)
