@@ -18,10 +18,9 @@ Image = get_image_model()
 
 
 def search_unsplash_images(request):
-    if request.POST:
-        if "image_id" in request.POST:
-            image = add_unsplash_image_to_wagtail(request.POST["image_id"])
-            return redirect(reverse("wagtailimages:edit", args=(image.id,)))
+    if request.POST and "image_id" in request.POST:
+        image = add_unsplash_image_to_wagtail(request.POST["image_id"])
+        return redirect(reverse("wagtailimages:edit", args=(image.id,)))
 
     query_string = None
     if 'q' in request.GET:
@@ -69,7 +68,6 @@ def add_unsplash_image_to_wagtail(image_id):
 
     url = photo.urls.raw
     unsplash_image = urllib.request.urlretrieve(url)
-    fname = os.path.basename(url)
 
     with open(unsplash_image[0], 'rb') as fp:
         image_obj = Image.objects.create(
