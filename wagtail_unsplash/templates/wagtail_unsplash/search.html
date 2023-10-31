@@ -1,0 +1,17 @@
+{% extends "wagtailadmin/generic/listing.html" %}
+{% load i18n wagtailadmin_tags %}
+
+{% block titletag %}{% trans "Unsplash image search" %}{% endblock %}
+
+{% block main_header %}
+    {% trans "Unsplash Images" as im_str %}
+    {% include "wagtailadmin/shared/header.html" with title=im_str icon="image" search_url="search_unsplash_images" search_target="#unsplash-image-results" %}
+{% endblock %}
+
+{% block listing %}
+    <div class="nice-padding">
+        <div id="unsplash-image-results">
+            {% trans "Search for images from Unsplash above" %}
+        </div>
+    </div>
+{% endblock %}
