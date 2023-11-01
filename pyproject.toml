@@ -9,12 +9,6 @@ description = "Use unsplash.com images in your Wagtail site"
 authors = ["Cameron Lamb <jafacakes2011@hotmail.co.uk>"]
 license = "MIT"
 readme = "README.md"
-packages = [
-    { include = "wagtail_unsplash" },
-    { include = "wagtail_unsplash/py.typed" },
-    { include = "wagtail_unsplash/templates/wagtail_unsplash" },
-    { include = "wagtail_unsplash/views" },
-]
 
 [tool.poetry.dependencies]
 python = "^3.11"
