@@ -12,6 +12,8 @@ readme = "README.md"
 packages = [
     { include = "wagtail_unsplash" },
     { include = "wagtail_unsplash/py.typed" },
+    { include = "wagtail_unsplash/templates/wagtail_unsplash" },
+    { include = "wagtail_unsplash/views" },
 ]
 
 [tool.poetry.dependencies]
