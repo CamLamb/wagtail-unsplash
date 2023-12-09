@@ -1,12 +1,13 @@
-
 from django.utils.translation import gettext_lazy as _
 from queryish import Queryish, VirtualModel
 
 from wagtail_unsplash.api import api
 
+PAGE_COUNT = 30
+
 
 class UnsplashQueryish(Queryish):
-    page_count = 30
+    page_count = PAGE_COUNT
 
     def run_query(self):
         if self.ordering:
