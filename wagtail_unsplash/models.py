@@ -10,9 +10,6 @@ class UnsplashQueryish(Queryish):
     page_count = PAGE_COUNT
 
     def run_query(self):
-        if self.ordering:
-            print("ordering", self.ordering)
-
         if not self.offset:
             self.offset = 0
 
@@ -41,7 +38,7 @@ class UnsplashQueryish(Queryish):
             )
 
         if self.limit:
-            photos = photos[:self.limit]
+            photos = photos[: self.limit]
         for photo in photos:
             yield self.get_instance(photo.__dict__)
 

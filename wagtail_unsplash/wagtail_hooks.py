@@ -1,19 +1,32 @@
-
 from django.urls import path, reverse_lazy
 from wagtail import hooks
 from wagtail.admin.menu import MenuItem
 
-from wagtail_unsplash.views.admin import (add_unsplash_image,
-                                          search_unsplash_images,
-                                          search_unsplash_images_index)
+from wagtail_unsplash.views.admin import (
+    SearchUnsplashImagesView,
+    add_unsplash_image,
+    search_unsplash_images_index,
+)
 
 
-@hooks.register('register_admin_urls')
+@hooks.register("register_admin_urls")
 def register_admin_urls():
     return [
-        path("unsplash-search/", search_unsplash_images_index, name="search_unsplash_images_index"),
-        path("unsplash-search/results/", search_unsplash_images, name="search_unsplash_images"),
-        path("unsplash-search/add-image/", add_unsplash_image, name="add_unsplash_image"),
+        path(
+            "unsplash-search/",
+            search_unsplash_images_index,
+            name="search_unsplash_images_index",
+        ),
+        path(
+            "unsplash-search/results/",
+            SearchUnsplashImagesView.as_view(),
+            name="search_unsplash_images",
+        ),
+        path(
+            "unsplash-search/add-image/",
+            add_unsplash_image,
+            name="add_unsplash_image",
+        ),
     ]
 
 
