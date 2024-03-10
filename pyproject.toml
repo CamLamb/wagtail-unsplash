@@ -12,7 +12,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-Django = "^4.2.6"
 wagtail = "^5.2"
 python-unsplash = "^1.2.5"
 queryish = "^0.2"
