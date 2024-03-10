@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.poetry]
 name = "wagtail-unsplash"
-version = "1.0.0"
+version = "1.0.1"
 description = "Use unsplash.com images in your Wagtail site"
 authors = ["Cameron Lamb <jafacakes2011@hotmail.co.uk>"]
 license = "MIT"
