@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "wagtail-unsplash"
+version = "1.0.0"
+description = "Use unsplash.com images in your Wagtail site"
+authors = ["Cameron Lamb <jafacakes2011@hotmail.co.uk>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.2.6"
+wagtail = "5.2"
+python-unsplash = { git = "https://github.com/CamLamb/python-unsplash.git", rev = "loosen-requirements" }
+queryish = "^0.2"
+
+[tool.poetry.group.utils]
+optional = true
+
+[tool.poetry.group.utils.dependencies]
+isort = "*"
+flake8 = "*"
+black = "*"
+mypy = "*"
+django-stubs = "*"
+types-freezegun = "*"

@@ -5,3 +5,4 @@ dist/
 env/
 wagtail_unsplash.egg-info/
 .vscode/
+.mypy_cache/

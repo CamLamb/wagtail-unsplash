@@ -1,0 +1,26 @@
+{% load i18n wagtailadmin_tags %}
+
+{% if results %}
+    <form id="unsplash-image-select-form" action="{% url 'add_unsplash_image' %}" method="POST">
+        {% csrf_token %}
+        <div id="image-results">
+            <ul class="listing horiz images">
+                {% for image in results %}
+                    <li>
+                        <div class="image-choice">
+                            <figure>
+                                <button name="image_id" value="{{ image.id }}" style="border: none; background: none;">
+                                    <img src="{{ image.urls.thumb }}" alt="{{ image.alt_description }}" style="max-height: 215px;" />
+                                </button>
+                                <figcaption>
+                                    {{ image }}
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+    </form>
+{% else %}
+    {% trans "Search for images from Unsplash above" %}
+{% endif %}

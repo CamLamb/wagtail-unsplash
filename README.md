@@ -1,6 +1,6 @@
 # [Wagtail Unsplash](https://pypi.org/project/wagtail-unsplash/)  [![PyPI](https://img.shields.io/pypi/v/wagtail-unsplash.svg)](https://pypi.org/project/wagtail-unsplash/)
 
-![Screenshot showing wagtail-unsplash search results](https://i.imgur.com/q12TzZL.png)
+![Screenshot showing wagtail-unsplash search results](https://i.imgur.com/Va0kCys.png)
 
 Search for Unsplash images and upload to the Wagtail image library.
 
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-and add the API credentials: 
+and add the API credentials:
 
 ```python
 # settings.py
