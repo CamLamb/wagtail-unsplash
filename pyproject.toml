@@ -12,7 +12,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-Django = "^4.2.6"
+Django = "^4.2.10"
 wagtail = "5.2"
 python-unsplash = { git = "https://github.com/CamLamb/python-unsplash.git", rev = "loosen-requirements" }
 queryish = "^0.2"
