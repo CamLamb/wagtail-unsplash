@@ -12,9 +12,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-wagtail = ">5.2, <6.1"
+wagtail = ">=7.0, <8.0"
 python-unsplash = "^1.2.5"
-queryish = "^0.2"
+queryish = "^0.3"
 
 [tool.poetry.group.utils]
 optional = true
